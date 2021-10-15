@@ -6,16 +6,16 @@ import cv2
 # It adds 'FH_' to the image name after flip horizontal.
 # If any error raised, first check parameters old_jsonpath, updated_jsonpath and image_folder.
 
-# Parameters;
-# old_jsonpath : the json location to retrieve the data.
-# updated_jsonpath : the location for saving updated json file.
-# image_folder : the location for folder containing images.
-# json_spec : this is an optional parameter and shows the number of images and annotations before and after augmentation.
-
-
 
 def flip_horizontal(old_jsonpath = 'sag_sol_train_and_val-19_1.json', updated_jsonpath = 'UPDATED_data.json', image_folder='datasets/sag_sol_train_and_val/',json_spec = True):
-    
+
+"""
+ Parameters;
+ old_jsonpath : the json location to retrieve the data.
+ updated_jsonpath : the location for saving updated json file.
+ image_folder : the location for folder containing images.
+ json_spec : this is an optional parameter and shows the number of images and annotations before and after augmentation.
+"""
 
     def load_json(j):    
         myjson = open(j,'r')
