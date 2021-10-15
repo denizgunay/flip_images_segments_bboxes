@@ -14,8 +14,7 @@ def load_json(j):
 def write_json(updated_jsonpath, new_data):
     with open(updated_jsonpath,'w') as fp:
         json.dump(new_data,fp)
-            
-            
+                        
 
 def flip_images(image_list,image_folder):
     images = []
@@ -62,7 +61,6 @@ def flip_images(image_list,image_folder):
             continue
     return images,img_id_conv,flip_img_id_conv
 
-
     
 def segmentation_update(s,w):    
     new_segment = []
@@ -79,8 +77,7 @@ def segmentation_update(s,w):
         new_segment.append(new_seg)
     return new_segment 
     
-
-    
+   
 def annotator(annotation_list,orig_image_list,img_id_conv,flip_img_id_conv):            
     f = 1
     annotations = []
@@ -94,7 +91,7 @@ def annotator(annotation_list,orig_image_list,img_id_conv,flip_img_id_conv):
         if bool(flip_img_id_conv):
             width = next((sub['width'] for sub in orig_image_list if sub['id'] == img_id_ann), 0)        
             if width == 0:
-                print("A problem with the 'width' variable in the annotator() function!")
+                print("A problem occured with the 'width' variable in the annotator() function!")
                 break
             new_segment = segmentation_update(old_ann['segmentation'],width)
             old_bbox = old_ann['bbox']
@@ -135,7 +132,6 @@ def flip_horizontal(old_jsonpath = 'sag_sol_train_and_val-19_1.json', updated_js
     updated_jsonpath : the location for saving updated json file.
     image_folder : the location for folder containing images.
     json_spec : this is an optional parameter and shows the number of images and annotations before and after augmentation.
-
     """
     
     
